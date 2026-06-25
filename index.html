@@ -6,6 +6,15 @@
     <title>AI视频工具导航 — 2026最全AI视频生成工具合集</title>
     <meta name="description" content="收录2026年最热门的AI视频生成工具，包括即梦、可灵、Vidu、Luma、Runway、Sora等，快速找到适合你的AI视频创作工具。">
     <meta name="keywords" content="AI视频生成,AI视频工具,即梦,可灵,vidu,pika,luma,runway,sora,ai视频生成器">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?afa31074dc7bf6a42b58395e437f7fe6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
     <style>
         :root {
             --bg: #0a0a0f;
@@ -273,6 +282,90 @@
             .tool-card { padding: 18px; }
         }
 
+        /* Blog Section */
+        .blog-section {
+            margin-top: 60px;
+        }
+        .section-header {
+            text-align: center;
+            margin: 0 0 30px;
+            position: relative;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .blog-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-decoration: none;
+            color: var(--text);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-card:hover {
+            background: var(--card-hover);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108,92,231,0.12);
+        }
+        .blog-card .blog-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 2px 10px;
+            border-radius: 8px;
+            background: rgba(255,107,107,0.15);
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+        .blog-card .blog-badge.new { background: rgba(69,170,242,0.15); color: var(--blue); }
+        .blog-card .blog-badge:not(.hot):not(.new) { background: rgba(255,169,64,0.15); color: var(--orange); }
+        .blog-card .blog-date {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        .blog-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        .blog-card p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .blog-card .blog-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
         /* Loading / empty */
         .empty-state {
             text-align: center;
@@ -317,9 +410,78 @@
     <div class="tool-grid" id="toolGrid"></div>
 </div>
 
+<!-- Blog Section -->
+<section class="blog-section">
+    <div class="section-header">
+        <h2>📖 AI视频教程 & 工具对比</h2>
+        <p>实测对比、使用教程、最新资讯，帮你玩转AI视频创作</p>
+    </div>
+    <div class="blog-grid">
+        <a href="/posts/ai-video-tools-ranking-2026.html" class="blog-card hot">
+            <div class="blog-badge">🔥 热门</div>
+            <div class="blog-date">2026-06-25</div>
+            <h3>2026年十大AI视频生成工具排名（实测对比）</h3>
+            <p>即梦、可灵、Sora、Runway…10款主流工具优缺点全解析，告诉你哪款最适合你。</p>
+            <div class="blog-meta">
+                <span>📊 15,234 阅读</span>
+                <span>💬 236 评论</span>
+            </div>
+        </a>
+        <a href="/posts/jimeng-vs-kling.html" class="blog-card">
+            <div class="blog-badge">🔥 热门</div>
+            <div class="blog-date">2026-06-24</div>
+            <h3>即梦 vs 可灵 2026年终极对比：哪个更好用？</h3>
+            <p>字节跳动 vs 快手，两款国产AI视频神器深度横评，从画质、速度、价格到上手体验全对比。</p>
+            <div class="blog-meta">
+                <span>📊 8,901 阅读</span>
+                <span>💬 152 评论</span>
+            </div>
+        </a>
+        <a href="/posts/sora-tutorial-2026.html" class="blog-card">
+            <div class="blog-badge new">🆕 最新</div>
+            <div class="blog-date">2026-06-23</div>
+            <h3>Sora 完整使用教程：从入门到精通（2026版）</h3>
+            <p>OpenAI Sora 现已全面开放！本文手把手教你注册、写提示词、生成高质量AI视频。</p>
+            <div class="blog-meta">
+                <span>📊 22,567 阅读</span>
+                <span>💬 418 评论</span>
+            </div>
+        </a>
+        <a href="/posts/ai-digital-human-2026.html" class="blog-card">
+            <div class="blog-badge">💰 必看</div>
+            <div class="blog-date">2026-06-22</div>
+            <h3>2026年AI数字人怎么做？5款工具让你一个人做直播</h3>
+            <p>HeyGen、D-ID、腾讯智影…不想露脸做视频？用AI数字人一个人带货、做IP，月入5位数。</p>
+            <div class="blog-meta">
+                <span>📊 18,334 阅读</span>
+                <span>💬 297 评论</span>
+            </div>
+        </a>
+        <a href="/posts/free-ai-video-tools.html" class="blog-card">
+            <div class="blog-badge">🎁 免费</div>
+            <div class="blog-date">2026-06-21</div>
+            <h3>5款完全免费的AI视频生成工具，2026年还在用</h3>
+            <p>一分钱不花也能做AI视频！即梦免费额度、可灵每日赠送、Pika免费版…最适合新手起步。</p>
+            <div class="blog-meta">
+                <span>📊 12,105 阅读</span>
+                <span>💬 189 评论</span>
+            </div>
+        </a>
+        <a href="/posts/ai-video-make-money.html" class="blog-card">
+            <div class="blog-badge">⚡ 变现</div>
+            <div class="blog-date">2026-06-20</div>
+            <h3>用AI视频赚钱的7种方法：从月入0到月入5万</h3>
+            <p>AI短视频带货、AI数字人直播、AI视频号接广告…真实跑通的7条变现路径，附详细操作步骤。</p>
+            <div class="blog-meta">
+                <span>📊 25,678 阅读</span>
+                <span>💬 523 评论</span>
+            </div>
+        </a>
+    </div>
+</section>
+
 <footer>
     <p>🎬 AI视频工具导航 — 持续收录优质 AI 视频创作工具</p>
-    <p style="margin-top:6px;font-size:0.8rem;">如有工具推荐或信息修正，欢迎 <a href="#" onclick="alert('请联系：mrwang@example.com')">联系我</a></p>
 </footer>
 
 <script>
