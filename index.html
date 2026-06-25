@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI视频工具导航 — 2026最全AI视频生成工具合集</title>
+    <meta name="description" content="收录2026年最热门的AI视频生成工具，包括即梦、可灵、Vidu、Luma、Runway、Sora等，快速找到适合你的AI视频创作工具。">
+    <meta name="keywords" content="AI视频生成,AI视频工具,即梦,可灵,vidu,pika,luma,runway,sora,ai视频生成器">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --card: #12121a;
+            --card-hover: #1a1a28;
+            --border: #1e1e30;
+            --text: #e8e8f0;
+            --text-secondary: #8888a0;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --green: #00d68f;
+            --orange: #ffa940;
+            --red: #ff6b6b;
+            --blue: #45aaf2;
+            --radius: 16px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(108,92,231,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(162,155,254,0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -20px); }
+        }
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            letter-spacing: -0.5px;
+        }
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-top: 12px;
+            position: relative;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            position: relative;
+        }
+        header .stats span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        header .stats strong {
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        /* Search & Filter */
+        .controls {
+            max-width: 1100px;
+            margin: -24px auto 20px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .search-bar {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .search-bar svg { flex-shrink: 0; }
+        .search-bar input {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+        }
+        .search-bar input::placeholder { color: var(--text-secondary); }
+        .filters {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .filters button {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filters button:hover { border-color: var(--accent); color: var(--text); }
+        .filters button.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* Grid */
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .tool-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .tool-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .tool-card:hover {
+            background: var(--card-hover);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108,92,231,0.15);
+        }
+        .tool-card:hover::after { opacity: 1; }
+
+        .tool-card .header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .tool-card .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .tool-card .info { flex: 1; min-width: 0; }
+        .tool-card .info h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        .tool-card .info .desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .tool-card .tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .tool-card .tags span {
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 10px;
+            background: rgba(108,92,231,0.12);
+            color: var(--accent-light);
+        }
+        .tool-card .tags span.free { background: rgba(0,214,143,0.12); color: var(--green); }
+        .tool-card .tags span.paid { background: rgba(255,169,64,0.12); color: var(--orange); }
+        .tool-card .tags span.hot { background: rgba(255,107,107,0.12); color: var(--red); }
+        .tool-card .tags span.new { background: rgba(69,170,242,0.12); color: var(--blue); }
+        .tool-card .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+        .tool-card .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--orange);
+            font-size: 0.8rem;
+        }
+        .tool-card .rating span { color: var(--text-secondary); margin-left: 4px; }
+        .tool-card .visit-btn {
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .tool-card .visit-btn:hover { background: var(--accent-light); transform: scale(1.05); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        footer a { color: var(--accent-light); text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            header h1 { font-size: 1.8rem; }
+            header .stats { gap: 20px; flex-wrap: wrap; }
+            .tool-grid { grid-template-columns: 1fr; }
+            .tool-card { padding: 18px; }
+        }
+
+        /* Loading / empty */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        .empty-state svg { margin-bottom: 16px; opacity: 0.4; }
+        .empty-state h3 { color: var(--text); margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎬 AI视频工具导航</h1>
+    <p>收录 2026 年最热门的 AI 视频生成工具，助你快速找到最适合的创作利器</p>
+    <div class="stats">
+        <span>📦 <strong id="toolCount">0</strong> 个工具</span>
+        <span>🏷️ <strong>6</strong> 个分类</span>
+        <span>🔄 每日更新</span>
+    </div>
+</header>
+
+<div class="container">
+    <div class="controls">
+        <div class="search-bar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8888a0" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="搜索工具名称或关键词..." oninput="filterTools()">
+        </div>
+        <div class="filters" id="filterButtons">
+            <button class="active" data-cat="all" onclick="filterByCategory('all')">全部</button>
+            <button data-cat="text-to-video" onclick="filterByCategory('text-to-video')">文生视频</button>
+            <button data-cat="img-to-video" onclick="filterByCategory('img-to-video')">图生视频</button>
+            <button data-cat="video-edit" onclick="filterByCategory('video-edit')">视频编辑</button>
+            <button data-cat="avatar" onclick="filterByCategory('avatar')">数字人</button>
+            <button data-cat="animation" onclick="filterByCategory('animation')">动画生成</button>
+            <button data-cat="free" onclick="filterByCategory('free')">🎁 免费</button>
+        </div>
+    </div>
+
+    <div class="tool-grid" id="toolGrid"></div>
+</div>
+
+<footer>
+    <p>🎬 AI视频工具导航 — 持续收录优质 AI 视频创作工具</p>
+    <p style="margin-top:6px;font-size:0.8rem;">如有工具推荐或信息修正，欢迎 <a href="#" onclick="alert('请联系：mrwang@example.com')">联系我</a></p>
+</footer>
+
+<script>
+// ========== TOOL DATA ==========
+const tools = [
+    // ===== 文生视频 =====
+    {
+        id: 1,
+        name: '即梦 (Jimeng)',
+        desc: '字节跳动出品，中文文生视频神器，文本理解能力强，生成速度快，支持超高清画质和多种视频风格。',
+        icon: '🎬',
+        iconBg: '#1a1a3e',
+        category: 'text-to-video',
+        tags: ['free', 'hot', '中文'],
+        rating: 4.6,
+        reviews: '12.3k',
+        url: 'https://jimeng.jianying.com/',
+        color: '#6c5ce7'
+    },
+    {
+        id: 2,
+        name: '可灵 (Kling)',
+        desc: '快手出品，国内最强的 AI 视频生成模型之一，支持超长视频生成（2分钟），画质细腻，物理运动模拟出色。',
+        icon: '🎞️',
+        iconBg: '#1a2e1a',
+        category: 'text-to-video',
+        tags: ['free', 'hot', '中文'],
+        rating: 4.7,
+        reviews: '15.8k',
+        url: 'https://kling.kuaishou.com/',
+        color: '#00d68f'
+    },
+    {
+        id: 3,
+        name: 'Vidu',
+        desc: '清华大学系团队打造，2026年黑马，支持图生视频/文生视频，画面一致性极强，适合品牌视频创作。',
+        icon: '🎯',
+        iconBg: '#2e1a2e',
+        category: 'text-to-video',
+        tags: ['free', 'new', '中文'],
+        rating: 4.5,
+        reviews: '6.7k',
+        url: 'https://www.vidu.ai/',
+        color: '#a29bfe'
+    },
+    {
+        id: 4,
+        name: 'Sora',
+        desc: 'OpenAI 出品，文生视频的里程碑产品，理解物理世界，生成 60 秒高质量视频，2026年已面向大众开放。',
+        icon: '🌊',
+        iconBg: '#1a1a2e',
+        category: 'text-to-video',
+        tags: ['paid', 'hot'],
+        rating: 4.8,
+        reviews: '28.5k',
+        url: 'https://sora.com/',
+        color: '#45aaf2'
+    },
+    {
+        id: 5,
+        name: 'Runway Gen-3',
+        desc: '专业级 AI 视频创作平台，功能最全的 AI 视频工具，支持文生视频、图生视频、视频延伸、抠像等。',
+        icon: '🏃',
+        iconBg: '#2e1a1a',
+        category: 'text-to-video',
+        tags: ['paid', 'hot'],
+        rating: 4.7,
+        reviews: '20.1k',
+        url: 'https://runwayml.com/',
+        color: '#ff6b6b'
+    },
+    {
+        id: 6,
+        name: 'Pika 2.0',
+        desc: '一键生成短视频，支持多种风格转换，界面友好适合新手。2026年推出 Lip Sync 功能，口型同步表现出色。',
+        icon: '🫎',
+        iconBg: '#1a2e2e',
+        category: 'text-to-video',
+        tags: ['free', 'paid'],
+        rating: 4.3,
+        reviews: '9.6k',
+        url: 'https://pika.art/',
+        color: '#00b5b5'
+    },
+
+    // ===== 图生视频 =====
+    {
+        id: 7,
+        name: 'Luma Dream Machine',
+        desc: '图生视频最强工具之一，把静态照片变成动态视频，效果惊艳。适合产品展示、人像复活、风景动效。',
+        icon: '✨',
+        iconBg: '#2e2e1a',
+        category: 'img-to-video',
+        tags: ['free', 'hot'],
+        rating: 4.6,
+        reviews: '14.2k',
+        url: 'https://lumalabs.ai/dream-machine',
+        color: '#ffa940'
+    },
+    {
+        id: 8,
+        name: 'MiniMax Video',
+        desc: 'MiniMax 旗下视频生成模型，图生视频效果突出，运镜自然，支持高清视频输出。',
+        icon: '🎭',
+        iconBg: '#1a2e1a',
+        category: 'img-to-video',
+        tags: ['free', 'new'],
+        rating: 4.4,
+        reviews: '5.3k',
+        url: 'https://www.minimaxi.com/',
+        color: '#00d68f'
+    },
+    {
+        id: 9,
+        name: 'Stable Video Diffusion',
+        desc: 'Stability AI 开源模型，图生视频免费可商用。适合技术用户自部署，社区活跃。',
+        icon: '🖼️',
+        iconBg: '#1a1a2e',
+        category: 'img-to-video',
+        tags: ['free', '开源'],
+        rating: 4.1,
+        reviews: '8.9k',
+        url: 'https://stability.ai/stable-video',
+        color: '#45aaf2'
+    },
+
+    // ===== 视频编辑 =====
+    {
+        id: 10,
+        name: '剪映专业版',
+        desc: '字节出品，国内最强视频编辑软件，内置海量AI功能：智能抠像、AI调色、文本转语音、数字人播报。',
+        icon: '✂️',
+        iconBg: '#2e1a1a',
+        category: 'video-edit',
+        tags: ['free', 'hot', '中文'],
+        rating: 4.8,
+        reviews: '35.2k',
+        url: 'https://www.capcut.cn/',
+        color: '#ff6b6b'
+    },
+    {
+        id: 11,
+        name: 'CapCut (海外版剪映)',
+        desc: '剪映国际版，TikTok 官方推荐工具，AI自动剪辑、自动字幕、AI扩图等功能领先全球。',
+        icon: '🎪',
+        iconBg: '#1a1a2e',
+        category: 'video-edit',
+        tags: ['free', 'hot'],
+        rating: 4.7,
+        reviews: '42.1k',
+        url: 'https://www.capcut.com/',
+        color: '#ff6b6b'
+    },
+    {
+        id: 12,
+        name: 'Wondershare Filmora',
+        desc: '万兴科技出品，AI视频编辑工具代表。支持AI文案生成视频、AI智能抠像、AI语音克隆等。',
+        icon: '🎥',
+        iconBg: '#1a2e2e',
+        category: 'video-edit',
+        tags: ['paid', '中文'],
+        rating: 4.2,
+        reviews: '11.4k',
+        url: 'https://filmora.wondershare.com/',
+        color: '#00b5b5'
+    },
+
+    // ===== 数字人 =====
+    {
+        id: 13,
+        name: 'HeyGen',
+        desc: '数字人视频生成标杆，上传照片/视频即可生成逼真数字人播报，支持140+语言，适合短视频带货、企业宣传。',
+        icon: '👤',
+        iconBg: '#2e2e1a',
+        category: 'avatar',
+        tags: ['paid', 'hot'],
+        rating: 4.6,
+        reviews: '18.7k',
+        url: 'https://www.heygen.com/',
+        color: '#ffa940'
+    },
+    {
+        id: 14,
+        name: 'D-ID',
+        desc: 'AI数字人鼻祖，照片说话、数字人直播、AI化身客服。界面简洁，适合快速创建数字人视频。',
+        icon: '🎭',
+        iconBg: '#1a1a3e',
+        category: 'avatar',
+        tags: ['paid'],
+        rating: 4.3,
+        reviews: '8.2k',
+        url: 'https://www.d-id.com/',
+        color: '#6c5ce7'
+    },
+    {
+        id: 15,
+        name: '腾讯智影',
+        desc: '腾讯出品在线智能视频创作平台，数字人播报、AI配音、智能字幕。支持云端协作，国内用户友好。',
+        icon: '☁️',
+        iconBg: '#2e1a1a',
+        category: 'avatar',
+        tags: ['free', 'paid', '中文'],
+        rating: 4.4,
+        reviews: '6.5k',
+        url: 'https://zenvideo.qq.com/',
+        color: '#45aaf2'
+    },
+
+    // ===== 动画生成 =====
+    {
+        id: 16,
+        name: 'Viggle AI',
+        desc: '3D角色动画生成神器，让图片角色跟着动作跳舞。2026年火爆全网的 AI 跳舞视频都出自这里。',
+        icon: '💃',
+        iconBg: '#2e1a2e',
+        category: 'animation',
+        tags: ['free', 'hot'],
+        rating: 4.5,
+        reviews: '7.8k',
+        url: 'https://www.viggle.ai/',
+        color: '#a29bfe'
+    },
+    {
+        id: 17,
+        name: 'Animate Diff',
+        desc: '开源 AI 动画生成工具，基于 Stable Diffusion，支持文生动画、视频风格迁移。适合技术创作者。',
+        icon: '🔄',
+        iconBg: '#1a1a2e',
+        category: 'animation',
+        tags: ['free', '开源'],
+        rating: 4.0,
+        reviews: '4.1k',
+        url: 'https://animatediff.github.io/',
+        color: '#45aaf2'
+    },
+    {
+        id: 18,
+        name: 'Moonvalley',
+        desc: '极简AI动画生成器，一句话生成梦幻动画短片。好莱坞风格镜头语言，电影感十足。',
+        icon: '🌙',
+        iconBg: '#1a2e2e',
+        category: 'animation',
+        tags: ['paid', 'new'],
+        rating: 4.2,
+        reviews: '3.6k',
+        url: 'https://moonvalley.ai/',
+        color: '#00b5b5'
+    },
+    {
+        id: 19,
+        name: 'Pixverse',
+        desc: '免费的 AI 视频/动画生成平台，社区活跃，每天送免费积分，支持文生视频和图生视频。',
+        icon: '🎨',
+        iconBg: '#2e2e1a',
+        category: 'animation',
+        tags: ['free', 'new'],
+        rating: 4.1,
+        reviews: '5.2k',
+        url: 'https://pixverse.ai/',
+        color: '#ffa940'
+    }
+];
+
+// ========== RENDER ==========
+let currentCategory = 'all';
+let currentSearch = '';
+
+function renderTools() {
+    const grid = document.getElementById('toolGrid');
+    const filtered = tools.filter(t => {
+        const matchCat = currentCategory === 'all' || t.category === currentCategory || currentCategory === 'free' && t.tags.includes('free');
+        const matchSearch = !currentSearch || 
+            t.name.toLowerCase().includes(currentSearch) || 
+            t.desc.toLowerCase().includes(currentSearch) ||
+            t.tags.some(tag => tag.toLowerCase().includes(currentSearch));
+        return matchCat && matchSearch;
+    });
+
+    document.getElementById('toolCount').textContent = filtered.length;
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-state" style="grid-column:1/-1">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#8888a0" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                </svg>
+                <h3>没有找到匹配的工具</h3>
+                <p>试试其他关键词或分类</p>
+            </div>
+        `;
+        return;
+    }
+
+    grid.innerHTML = filtered.map(t => `
+        <div class="tool-card" onclick="window.open('${t.url}','_blank')">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:${t.color};opacity:1;"></div>
+            <div class="header">
+                <div class="icon" style="background:${t.iconBg};color:${t.color}">${t.icon}</div>
+                <div class="info">
+                    <h3>${t.name}</h3>
+                    <div class="desc">${t.desc}</div>
+                </div>
+            </div>
+            <div class="tags">
+                ${t.tags.map(tag => `<span class="${tag}">${tag}</span>`).join('')}
+            </div>
+            <div class="footer">
+                <div class="rating">
+                    ★ ${t.rating} <span>(${t.reviews}评)</span>
+                </div>
+                <a href="${t.url}" target="_blank" class="visit-btn" onclick="event.stopPropagation()">访问 →</a>
+            </div>
+        </div>
+    `).join('');
+}
+
+function filterByCategory(cat) {
+    currentCategory = cat;
+    document.querySelectorAll('.filters button').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+    renderTools();
+}
+
+function filterTools() {
+    currentSearch = document.getElementById('searchInput').value.toLowerCase();
+    renderTools();
+}
+
+renderTools();
+</script>
+</body>
+</html>
