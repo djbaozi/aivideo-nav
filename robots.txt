@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://djbaozi.ccwu.cc/sitemap.xml
