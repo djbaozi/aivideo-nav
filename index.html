@@ -33,6 +33,11 @@ var _hmt = _hmt || [];
             --teal: #00cec9;
             --radius: 16px;
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Tab theme colors (swapped via JS) */
+            --theme-from: #0a0a1a;
+            --theme-to: #1a0a2e;
+            --theme-accent: #6c5ce7;
+            --theme-glow: rgba(108,92,231,0.15);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -45,12 +50,13 @@ var _hmt = _hmt || [];
         
         /* Header */
         header {
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+            background: linear-gradient(135deg, var(--theme-from) 0%, var(--theme-to) 50%, var(--theme-from) 100%);
             border-bottom: 1px solid var(--border);
             padding: 60px 20px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            transition: background 0.6s ease;
         }
         header::before {
             content: '';
@@ -59,9 +65,34 @@ var _hmt = _hmt || [];
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(108,92,231,0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(162,155,254,0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, var(--theme-glow) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, var(--theme-glow) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
+        }
+        /* Floating decorative orbs */
+        header .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            transition: all 0.8s ease;
+            pointer-events: none;
+        }
+        header .orb-1 {
+            width: 300px; height: 300px;
+            background: var(--theme-accent);
+            top: -80px; right: -60px;
+            animation: orb-drift 12s ease-in-out infinite alternate;
+        }
+        header .orb-2 {
+            width: 200px; height: 200px;
+            background: var(--pink);
+            bottom: -40px; left: -40px;
+            animation: orb-drift 15s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes orb-drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, -30px) scale(1.2); }
         }
         @keyframes float {
             0%, 100% { transform: translate(0, 0); }
@@ -101,6 +132,13 @@ var _hmt = _hmt || [];
             color: var(--text);
             font-size: 1.1rem;
         }
+        header .sub-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 6px;
+            position: relative;
+            opacity: 0.7;
+        }
 
         /* Category Tabs */
         .tabs {
@@ -126,17 +164,45 @@ var _hmt = _hmt || [];
             text-align: center;
             font-size: 0.95rem;
             font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--theme-accent), var(--pink));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
         }
         .tab-btn:hover {
-            border-color: var(--accent);
+            border-color: var(--theme-accent);
             color: var(--text);
+            transform: translateY(-1px);
         }
         .tab-btn.active {
-            background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(162,155,254,0.1));
-            border-color: var(--accent);
-            color: var(--accent-light);
+            border-color: var(--theme-accent);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(108,92,231,0.25);
+        }
+        .tab-btn.active::before {
+            opacity: 0.15;
         }
         .tab-btn .tab-icon { margin-right: 6px; }
+        .tab-btn .tab-count {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.08);
+            padding: 0 6px;
+            border-radius: 6px;
+            margin-left: 4px;
+            color: var(--text-secondary);
+        }
+        .tab-btn.active .tab-count {
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.7);
+        }
 
         /* Search & Filter */
         .controls {
@@ -193,6 +259,7 @@ var _hmt = _hmt || [];
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 16px;
+            min-height: 200px;
         }
 
         .tool-card {
@@ -204,6 +271,19 @@ var _hmt = _hmt || [];
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            animation: card-enter 0.4s ease both;
+        }
+        .tool-card:nth-child(1) { animation-delay: 0s; }
+        .tool-card:nth-child(2) { animation-delay: 0.05s; }
+        .tool-card:nth-child(3) { animation-delay: 0.1s; }
+        .tool-card:nth-child(4) { animation-delay: 0.15s; }
+        .tool-card:nth-child(5) { animation-delay: 0.2s; }
+        .tool-card:nth-child(6) { animation-delay: 0.25s; }
+        .tool-card:nth-child(7) { animation-delay: 0.3s; }
+        .tool-card:nth-child(8) { animation-delay: 0.35s; }
+        @keyframes card-enter {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .tool-card::after {
             content: '';
@@ -420,8 +500,13 @@ var _hmt = _hmt || [];
 <body>
 
 <header>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
     <h1>🧰 AI工具导航</h1>
     <p>收录 2026 年最热门的 AI 工具，覆盖视频生成、写作、设计、编程四大领域</p>
+    <div class="sub-desc">
+        <span id="tabDesc">🎬 即梦 · 可灵 · Sora · Runway · 剪映</span>
+    </div>
     <div class="stats">
         <span>📦 <strong id="toolCount">0</strong> 个工具</span>
         <span>🏷️ <strong>4</strong> 大类别</span>
@@ -430,10 +515,10 @@ var _hmt = _hmt || [];
 </header>
 
 <div class="tabs" id="tabs">
-    <button class="tab-btn active" data-tab="video" onclick="switchTab('video')"><span class="tab-icon">🎬</span>AI视频</button>
-    <button class="tab-btn" data-tab="writing" onclick="switchTab('writing')"><span class="tab-icon">✍️</span>AI写作</button>
-    <button class="tab-btn" data-tab="design" onclick="switchTab('design')"><span class="tab-icon">🎨</span>AI设计</button>
-    <button class="tab-btn" data-tab="coding" onclick="switchTab('coding')"><span class="tab-icon">💻</span>AI编程</button>
+    <button class="tab-btn active" data-tab="video" onclick="switchTab('video')"><span class="tab-icon">🎬</span>AI视频<span class="tab-count" id="count-video">16</span></button>
+    <button class="tab-btn" data-tab="writing" onclick="switchTab('writing')"><span class="tab-icon">✍️</span>AI写作<span class="tab-count" id="count-writing">12</span></button>
+    <button class="tab-btn" data-tab="design" onclick="switchTab('design')"><span class="tab-icon">🎨</span>AI设计<span class="tab-count" id="count-design">12</span></button>
+    <button class="tab-btn" data-tab="coding" onclick="switchTab('coding')"><span class="tab-icon">💻</span>AI编程<span class="tab-count" id="count-coding">12</span></button>
 </div>
 
 <div class="container">
@@ -917,6 +1002,30 @@ const toolsDB = {
     ]
 };
 
+// ========== THEME CONFIG ==========
+const tabThemes = {
+    video: {
+        from: '#0a0a1a', to: '#1a0a2e',
+        accent: '#6c5ce7', glow: 'rgba(108,92,231,0.12)',
+        desc: '🎬 即梦 · 可灵 · Sora · Runway · 剪映'
+    },
+    writing: {
+        from: '#0a1a0a', to: '#0a2e1a',
+        accent: '#00d68f', glow: 'rgba(0,214,143,0.12)',
+        desc: '✍️ ChatGPT · Claude · DeepSeek · Kimi · Gamma'
+    },
+    design: {
+        from: '#1a0a0a', to: '#2e1a0a',
+        accent: '#ffa940', glow: 'rgba(255,169,64,0.12)',
+        desc: '🎨 Midjourney · SD3 · Canva · Figma · Firefly'
+    },
+    coding: {
+        from: '#0a0a1a', to: '#0a1a2e',
+        accent: '#45aaf2', glow: 'rgba(69,170,242,0.12)',
+        desc: '💻 Cursor · Copilot · Claude Code · Windsurf · v0'
+    }
+};
+
 // ========== STATE ==========
 let currentTab = 'video';
 let currentCategory = 'all';
@@ -977,7 +1086,7 @@ function renderTools() {
     }
 
     grid.innerHTML = filtered.map(t => `
-        <div class="tool-card" onclick="window.open('${t.url}','_blank')">
+        <div class="tool-card" onclick="window.open('${t.url}','_blank')" style="animation-delay:${Math.random()*0.3}s">
             <div style="position:absolute;top:0;left:0;right:0;height:3px;background:${t.color};opacity:1;"></div>
             <div class="header">
                 <div class="icon" style="background:${t.iconBg};color:${t.color}">${t.icon}</div>
@@ -1009,6 +1118,15 @@ function switchTab(tab) {
         b.classList.toggle('active', b.dataset.tab === tab)
     );
     
+    // Apply theme
+    const theme = tabThemes[tab];
+    const root = document.documentElement;
+    root.style.setProperty('--theme-from', theme.from);
+    root.style.setProperty('--theme-to', theme.to);
+    root.style.setProperty('--theme-accent', theme.accent);
+    root.style.setProperty('--theme-glow', theme.glow);
+    document.getElementById('tabDesc').textContent = theme.desc;
+    
     renderFilters();
     renderTools();
 }
@@ -1027,6 +1145,12 @@ function filterTools() {
 }
 
 // Init
+const initTheme = tabThemes['video'];
+const initRoot = document.documentElement;
+initRoot.style.setProperty('--theme-from', initTheme.from);
+initRoot.style.setProperty('--theme-to', initTheme.to);
+initRoot.style.setProperty('--theme-accent', initTheme.accent);
+initRoot.style.setProperty('--theme-glow', initTheme.glow);
 renderFilters();
 renderTools();
 </script>
