@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI视频工具导航 — 2026最全AI视频生成工具合集</title>
-    <meta name="description" content="收录2026年最热门的AI视频生成工具，包括即梦、可灵、Vidu、Luma、Runway、Sora等，快速找到适合你的AI视频创作工具。">
-    <meta name="keywords" content="AI视频生成,AI视频工具,即梦,可灵,vidu,pika,luma,runway,sora,ai视频生成器">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -15,6 +12,9 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<title>AI工具导航 — 2026最全AI工具合集（视频/写作/设计/编程）</title>
+    <meta name="description" content="2026年最全AI工具导航站，收录AI视频生成、AI写作、AI设计、AI编程四大类别热门工具，即梦、可灵、Sora、ChatGPT、Midjourney、Cursor等一网打尽。">
+    <meta name="keywords" content="AI工具导航,AI视频生成,AI写作工具,AI设计工具,AI编程工具,即梦,可灵,ChatGPT,Midjourney,Cursor,Sora">
     <style>
         :root {
             --bg: #0a0a0f;
@@ -29,6 +29,8 @@ var _hmt = _hmt || [];
             --orange: #ffa940;
             --red: #ff6b6b;
             --blue: #45aaf2;
+            --pink: #fd79a8;
+            --teal: #00cec9;
             --radius: 16px;
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -100,13 +102,47 @@ var _hmt = _hmt || [];
             font-size: 1.1rem;
         }
 
-        /* Search & Filter */
-        .controls {
-            max-width: 1100px;
+        /* Category Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
             margin: -24px auto 20px;
             padding: 0 20px;
             position: relative;
             z-index: 10;
+            max-width: 1100px;
+        }
+        .tab-btn {
+            flex: 1;
+            max-width: 200px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(162,155,254,0.1));
+            border-color: var(--accent);
+            color: var(--accent-light);
+        }
+        .tab-btn .tab-icon { margin-right: 6px; }
+
+        /* Search & Filter */
+        .controls {
+            max-width: 1100px;
+            margin: 0 auto 20px;
+            padding: 0 20px;
         }
         .search-bar {
             background: var(--card);
@@ -235,6 +271,8 @@ var _hmt = _hmt || [];
         .tool-card .tags span.paid { background: rgba(255,169,64,0.12); color: var(--orange); }
         .tool-card .tags span.hot { background: rgba(255,107,107,0.12); color: var(--red); }
         .tool-card .tags span.new { background: rgba(69,170,242,0.12); color: var(--blue); }
+        .tool-card .tags span.开源 { background: rgba(0,206,201,0.12); color: var(--teal); }
+        .tool-card .tags span.中文 { background: rgba(162,155,254,0.12); color: var(--accent-light); }
         .tool-card .footer {
             display: flex;
             justify-content: space-between;
@@ -263,28 +301,11 @@ var _hmt = _hmt || [];
         }
         .tool-card .visit-btn:hover { background: var(--accent-light); transform: scale(1.05); }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border);
-            margin-top: 40px;
-        }
-        footer a { color: var(--accent-light); text-decoration: none; }
-
-        /* Responsive */
-        @media (max-width: 700px) {
-            header h1 { font-size: 1.8rem; }
-            header .stats { gap: 20px; flex-wrap: wrap; }
-            .tool-grid { grid-template-columns: 1fr; }
-            .tool-card { padding: 18px; }
-        }
-
         /* Blog Section */
         .blog-section {
             margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
         }
         .section-header {
             text-align: center;
@@ -366,7 +387,7 @@ var _hmt = _hmt || [];
             color: var(--text-secondary);
         }
 
-        /* Loading / empty */
+        /* Empty state */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -374,19 +395,46 @@ var _hmt = _hmt || [];
         }
         .empty-state svg { margin-bottom: 16px; opacity: 0.4; }
         .empty-state h3 { color: var(--text); margin-bottom: 8px; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        footer a { color: var(--accent-light); text-decoration: none; }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 1.8rem; }
+            header .stats { gap: 20px; flex-wrap: wrap; }
+            .tabs { flex-wrap: wrap; }
+            .tab-btn { max-width: none; flex: 1 0 45%; }
+            .tool-grid { grid-template-columns: 1fr; }
+            .tool-card { padding: 18px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🎬 AI视频工具导航</h1>
-    <p>收录 2026 年最热门的 AI 视频生成工具，助你快速找到最适合的创作利器</p>
+    <h1>🧰 AI工具导航</h1>
+    <p>收录 2026 年最热门的 AI 工具，覆盖视频生成、写作、设计、编程四大领域</p>
     <div class="stats">
         <span>📦 <strong id="toolCount">0</strong> 个工具</span>
-        <span>🏷️ <strong>6</strong> 个分类</span>
+        <span>🏷️ <strong>4</strong> 大类别</span>
         <span>🔄 每日更新</span>
     </div>
 </header>
+
+<div class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="video" onclick="switchTab('video')"><span class="tab-icon">🎬</span>AI视频</button>
+    <button class="tab-btn" data-tab="writing" onclick="switchTab('writing')"><span class="tab-icon">✍️</span>AI写作</button>
+    <button class="tab-btn" data-tab="design" onclick="switchTab('design')"><span class="tab-icon">🎨</span>AI设计</button>
+    <button class="tab-btn" data-tab="coding" onclick="switchTab('coding')"><span class="tab-icon">💻</span>AI编程</button>
+</div>
 
 <div class="container">
     <div class="controls">
@@ -398,12 +446,6 @@ var _hmt = _hmt || [];
         </div>
         <div class="filters" id="filterButtons">
             <button class="active" data-cat="all" onclick="filterByCategory('all')">全部</button>
-            <button data-cat="text-to-video" onclick="filterByCategory('text-to-video')">文生视频</button>
-            <button data-cat="img-to-video" onclick="filterByCategory('img-to-video')">图生视频</button>
-            <button data-cat="video-edit" onclick="filterByCategory('video-edit')">视频编辑</button>
-            <button data-cat="avatar" onclick="filterByCategory('avatar')">数字人</button>
-            <button data-cat="animation" onclick="filterByCategory('animation')">动画生成</button>
-            <button data-cat="free" onclick="filterByCategory('free')">🎁 免费</button>
         </div>
     </div>
 
@@ -413,38 +455,45 @@ var _hmt = _hmt || [];
 <!-- Blog Section -->
 <section class="blog-section">
     <div class="section-header">
-        <h2>📖 AI视频教程 & 工具对比</h2>
-        <p>实测对比、使用教程、最新资讯，帮你玩转AI视频创作</p>
+        <h2>📖 AI教程 & 工具对比</h2>
+        <p>实测对比、使用教程、最新资讯，帮你找到最适合的AI工具</p>
     </div>
     <div class="blog-grid">
+        <a href="/posts/ai-video-trends-2026.html" class="blog-card new">
+            <div class="blog-badge">🆕 最新</div>
+            <div class="blog-date">2026-06-27</div>
+            <h3>AI视频行业趋势2026：下半年前沿方向全预测</h3>
+            <p>Sora全面开放、实时生成突破、4K超高清、数字人直播爆发…一览2026下半年AI视频走向。</p>
+            <div class="blog-meta">
+                <span>🔮 行业趋势</span>
+                <span>📊 10大预测</span>
+            </div>
+        </a>
         <a href="/posts/ai-video-tools-ranking-2026.html" class="blog-card hot">
             <div class="blog-badge">🔥 热门</div>
             <div class="blog-date">2026-06-25</div>
             <h3>2026年十大AI视频生成工具排名（实测对比）</h3>
             <p>即梦、可灵、Sora、Runway…10款主流工具优缺点全解析，告诉你哪款最适合你。</p>
             <div class="blog-meta">
-                <span>📊 15,234 阅读</span>
-                <span>💬 236 评论</span>
+                <span>📊 15,234+ 阅读</span>
             </div>
         </a>
-        <a href="/posts/jimeng-vs-kling.html" class="blog-card">
+        <a href="/posts/jimeng-vs-kling.html" class="blog-card hot">
             <div class="blog-badge">🔥 热门</div>
             <div class="blog-date">2026-06-24</div>
             <h3>即梦 vs 可灵 2026年终极对比：哪个更好用？</h3>
             <p>字节跳动 vs 快手，两款国产AI视频神器深度横评，从画质、速度、价格到上手体验全对比。</p>
             <div class="blog-meta">
-                <span>📊 8,901 阅读</span>
-                <span>💬 152 评论</span>
+                <span>📊 8,901+ 阅读</span>
             </div>
         </a>
-        <a href="/posts/sora-tutorial-2026.html" class="blog-card">
-            <div class="blog-badge new">🆕 最新</div>
+        <a href="/posts/sora-tutorial-2026.html" class="blog-card new">
+            <div class="blog-badge">🆕 教程</div>
             <div class="blog-date">2026-06-23</div>
             <h3>Sora 完整使用教程：从入门到精通（2026版）</h3>
             <p>OpenAI Sora 现已全面开放！本文手把手教你注册、写提示词、生成高质量AI视频。</p>
             <div class="blog-meta">
-                <span>📊 22,567 阅读</span>
-                <span>💬 418 评论</span>
+                <span>📊 22,567+ 阅读</span>
             </div>
         </a>
         <a href="/posts/ai-digital-human-2026.html" class="blog-card">
@@ -453,8 +502,7 @@ var _hmt = _hmt || [];
             <h3>2026年AI数字人怎么做？5款工具让你一个人做直播</h3>
             <p>HeyGen、D-ID、腾讯智影…不想露脸做视频？用AI数字人一个人带货、做IP，月入5位数。</p>
             <div class="blog-meta">
-                <span>📊 18,334 阅读</span>
-                <span>💬 297 评论</span>
+                <span>📊 18,334+ 阅读</span>
             </div>
         </a>
         <a href="/posts/free-ai-video-tools.html" class="blog-card">
@@ -463,8 +511,7 @@ var _hmt = _hmt || [];
             <h3>5款完全免费的AI视频生成工具，2026年还在用</h3>
             <p>一分钱不花也能做AI视频！即梦免费额度、可灵每日赠送、Pika免费版…最适合新手起步。</p>
             <div class="blog-meta">
-                <span>📊 12,105 阅读</span>
-                <span>💬 189 评论</span>
+                <span>📊 12,105+ 阅读</span>
             </div>
         </a>
         <a href="/posts/ai-video-make-money.html" class="blog-card">
@@ -473,290 +520,444 @@ var _hmt = _hmt || [];
             <h3>用AI视频赚钱的7种方法：从月入0到月入5万</h3>
             <p>AI短视频带货、AI数字人直播、AI视频号接广告…真实跑通的7条变现路径，附详细操作步骤。</p>
             <div class="blog-meta">
-                <span>📊 25,678 阅读</span>
-                <span>💬 523 评论</span>
+                <span>📊 25,678+ 阅读</span>
             </div>
         </a>
     </div>
 </section>
 
 <footer>
-    <p>🎬 AI视频工具导航 — 持续收录优质 AI 视频创作工具</p>
+    <p>🧰 AI工具导航 — 2026年最全AI工具合集 · 视频 · 写作 · 设计 · 编程</p>
+    <p style="margin-top:8px;font-size:0.8rem;">
+        <a href="https://djbaozi.ccwu.cc">回到首页</a>
+    </p>
 </footer>
 
 <script>
-// ========== TOOL DATA ==========
-const tools = [
-    // ===== 文生视频 =====
-    {
-        id: 1,
-        name: '即梦 (Jimeng)',
-        desc: '字节跳动出品，中文文生视频神器，文本理解能力强，生成速度快，支持超高清画质和多种视频风格。',
-        icon: '🎬',
-        iconBg: '#1a1a3e',
-        category: 'text-to-video',
-        tags: ['free', 'hot', '中文'],
-        rating: 4.6,
-        reviews: '12.3k',
-        url: 'https://jimeng.jianying.com/',
-        color: '#6c5ce7'
-    },
-    {
-        id: 2,
-        name: '可灵 (Kling)',
-        desc: '快手出品，国内最强的 AI 视频生成模型之一，支持超长视频生成（2分钟），画质细腻，物理运动模拟出色。',
-        icon: '🎞️',
-        iconBg: '#1a2e1a',
-        category: 'text-to-video',
-        tags: ['free', 'hot', '中文'],
-        rating: 4.7,
-        reviews: '15.8k',
-        url: 'https://kling.kuaishou.com/',
-        color: '#00d68f'
-    },
-    {
-        id: 3,
-        name: 'Vidu',
-        desc: '清华大学系团队打造，2026年黑马，支持图生视频/文生视频，画面一致性极强，适合品牌视频创作。',
-        icon: '🎯',
-        iconBg: '#2e1a2e',
-        category: 'text-to-video',
-        tags: ['free', 'new', '中文'],
-        rating: 4.5,
-        reviews: '6.7k',
-        url: 'https://www.vidu.ai/',
-        color: '#a29bfe'
-    },
-    {
-        id: 4,
-        name: 'Sora',
-        desc: 'OpenAI 出品，文生视频的里程碑产品，理解物理世界，生成 60 秒高质量视频，2026年已面向大众开放。',
-        icon: '🌊',
-        iconBg: '#1a1a2e',
-        category: 'text-to-video',
-        tags: ['paid', 'hot'],
-        rating: 4.8,
-        reviews: '28.5k',
-        url: 'https://sora.com/',
-        color: '#45aaf2'
-    },
-    {
-        id: 5,
-        name: 'Runway Gen-3',
-        desc: '专业级 AI 视频创作平台，功能最全的 AI 视频工具，支持文生视频、图生视频、视频延伸、抠像等。',
-        icon: '🏃',
-        iconBg: '#2e1a1a',
-        category: 'text-to-video',
-        tags: ['paid', 'hot'],
-        rating: 4.7,
-        reviews: '20.1k',
-        url: 'https://runwayml.com/',
-        color: '#ff6b6b'
-    },
-    {
-        id: 6,
-        name: 'Pika 2.0',
-        desc: '一键生成短视频，支持多种风格转换，界面友好适合新手。2026年推出 Lip Sync 功能，口型同步表现出色。',
-        icon: '🫎',
-        iconBg: '#1a2e2e',
-        category: 'text-to-video',
-        tags: ['free', 'paid'],
-        rating: 4.3,
-        reviews: '9.6k',
-        url: 'https://pika.art/',
-        color: '#00b5b5'
-    },
+// ========== ALL TOOL DATA ==========
+const toolsDB = {
+    // ======================== 🎬 AI视频 ========================
+    video: [
+        {
+            id: 'v1', name: '即梦 (Jimeng)',
+            desc: '字节跳动出品，中文文生视频神器，文本理解能力强，生成速度快，支持超高清画质和多种视频风格。',
+            icon: '🎬', iconBg: '#1a1a3e',
+            category: 'gen', tags: ['free','hot','中文'],
+            rating: 4.6, reviews: '12.3k', url: 'https://jimeng.jianying.com/', color: '#6c5ce7'
+        },
+        {
+            id: 'v2', name: '可灵 (Kling)',
+            desc: '快手出品，国内最强的 AI 视频生成模型之一，支持超长视频生成（2分钟），画质细腻，物理运动模拟出色。',
+            icon: '🎞️', iconBg: '#1a2e1a',
+            category: 'gen', tags: ['free','hot','中文'],
+            rating: 4.7, reviews: '15.8k', url: 'https://kling.kuaishou.com/', color: '#00d68f'
+        },
+        {
+            id: 'v3', name: 'Vidu',
+            desc: '清华大学系团队打造，2026年黑马，支持图生视频/文生视频，画面一致性极强，适合品牌视频创作。',
+            icon: '🎯', iconBg: '#2e1a2e',
+            category: 'gen', tags: ['free','new','中文'],
+            rating: 4.5, reviews: '6.7k', url: 'https://www.vidu.ai/', color: '#a29bfe'
+        },
+        {
+            id: 'v4', name: 'Sora',
+            desc: 'OpenAI 出品，文生视频的里程碑产品，理解物理世界，生成 60 秒高质量视频，2026年已面向大众开放。',
+            icon: '🌊', iconBg: '#1a1a2e',
+            category: 'gen', tags: ['paid','hot'],
+            rating: 4.8, reviews: '28.5k', url: 'https://sora.com/', color: '#45aaf2'
+        },
+        {
+            id: 'v5', name: 'Runway Gen-4',
+            desc: '专业级 AI 视频创作平台，功能最全的 AI 视频工具，支持文生视频、图生视频、视频延伸、实时生成等。',
+            icon: '🏃', iconBg: '#2e1a1a',
+            category: 'edit', tags: ['paid','hot'],
+            rating: 4.7, reviews: '20.1k', url: 'https://runwayml.com/', color: '#ff6b6b'
+        },
+        {
+            id: 'v6', name: 'Pika 3.0',
+            desc: '一键生成短视频，支持多种风格转换，界面友好适合新手。2026年推出 Live 实时生成功能。',
+            icon: '🫎', iconBg: '#1a2e2e',
+            category: 'gen', tags: ['free','paid'],
+            rating: 4.3, reviews: '9.6k', url: 'https://pika.art/', color: '#00b5b5'
+        },
+        {
+            id: 'v7', name: 'Luma Dream Machine',
+            desc: '图生视频最强工具之一，把静态照片变成动态视频，效果惊艳。适合产品展示、人像复活、风景动效。',
+            icon: '✨', iconBg: '#2e2e1a',
+            category: 'img2vid', tags: ['free','hot'],
+            rating: 4.6, reviews: '14.2k', url: 'https://lumalabs.ai/dream-machine', color: '#ffa940'
+        },
+        {
+            id: 'v8', name: 'MiniMax Video',
+            desc: 'MiniMax 旗下视频生成模型，图生视频效果突出，运镜自然，支持高清视频输出。',
+            icon: '🎭', iconBg: '#1a2e1a',
+            category: 'img2vid', tags: ['free','new'],
+            rating: 4.4, reviews: '5.3k', url: 'https://www.minimaxi.com/', color: '#00d68f'
+        },
+        {
+            id: 'v9', name: 'Stable Video Diffusion',
+            desc: 'Stability AI 开源模型，图生视频免费可商用。适合技术用户自部署，社区活跃。',
+            icon: '🖼️', iconBg: '#1a1a2e',
+            category: 'img2vid', tags: ['free','开源'],
+            rating: 4.1, reviews: '8.9k', url: 'https://stability.ai/stable-video', color: '#45aaf2'
+        },
+        {
+            id: 'v10', name: '剪映专业版',
+            desc: '字节出品，国内最强视频编辑软件，内置海量AI功能：智能抠像、AI调色、文本转语音、数字人播报。',
+            icon: '✂️', iconBg: '#2e1a1a',
+            category: 'edit', tags: ['free','hot','中文'],
+            rating: 4.8, reviews: '35.2k', url: 'https://www.capcut.cn/', color: '#ff6b6b'
+        },
+        {
+            id: 'v11', name: 'CapCut (海外版)',
+            desc: '剪映国际版，TikTok 官方推荐工具，AI自动剪辑、自动字幕、AI扩图等功能领先全球。',
+            icon: '🎪', iconBg: '#1a1a2e',
+            category: 'edit', tags: ['free','hot'],
+            rating: 4.7, reviews: '42.1k', url: 'https://www.capcut.com/', color: '#ff6b6b'
+        },
+        {
+            id: 'v12', name: 'HeyGen',
+            desc: '数字人视频生成标杆，上传照片/视频即可生成逼真数字人播报，支持140+语言，适合短视频带货。',
+            icon: '👤', iconBg: '#2e2e1a',
+            category: 'avatar', tags: ['paid','hot'],
+            rating: 4.6, reviews: '18.7k', url: 'https://www.heygen.com/', color: '#ffa940'
+        },
+        {
+            id: 'v13', name: 'D-ID',
+            desc: 'AI数字人鼻祖，照片说话、数字人直播、AI化身客服。界面简洁，适合快速创建数字人视频。',
+            icon: '🎭', iconBg: '#1a1a3e',
+            category: 'avatar', tags: ['paid'],
+            rating: 4.3, reviews: '8.2k', url: 'https://www.d-id.com/', color: '#6c5ce7'
+        },
+        {
+            id: 'v14', name: '腾讯智影',
+            desc: '腾讯出品在线智能视频创作平台，数字人播报、AI配音、智能字幕。支持云端协作，国内用户友好。',
+            icon: '☁️', iconBg: '#2e1a1a',
+            category: 'avatar', tags: ['free','paid','中文'],
+            rating: 4.4, reviews: '6.5k', url: 'https://zenvideo.qq.com/', color: '#45aaf2'
+        },
+        {
+            id: 'v15', name: 'Viggle AI',
+            desc: '3D角色动画生成神器，让图片角色跟着动作跳舞。2026年火爆全网的 AI 跳舞视频都出自这里。',
+            icon: '💃', iconBg: '#2e1a2e',
+            category: 'anim', tags: ['free','hot'],
+            rating: 4.5, reviews: '7.8k', url: 'https://www.viggle.ai/', color: '#a29bfe'
+        },
+        {
+            id: 'v16', name: 'Pixverse',
+            desc: '免费的 AI 视频/动画生成平台，社区活跃，每天送免费积分，支持文生视频和图生视频。',
+            icon: '🎨', iconBg: '#2e2e1a',
+            category: 'anim', tags: ['free','new'],
+            rating: 4.1, reviews: '5.2k', url: 'https://pixverse.ai/', color: '#ffa940'
+        }
+    ],
 
-    // ===== 图生视频 =====
-    {
-        id: 7,
-        name: 'Luma Dream Machine',
-        desc: '图生视频最强工具之一，把静态照片变成动态视频，效果惊艳。适合产品展示、人像复活、风景动效。',
-        icon: '✨',
-        iconBg: '#2e2e1a',
-        category: 'img-to-video',
-        tags: ['free', 'hot'],
-        rating: 4.6,
-        reviews: '14.2k',
-        url: 'https://lumalabs.ai/dream-machine',
-        color: '#ffa940'
-    },
-    {
-        id: 8,
-        name: 'MiniMax Video',
-        desc: 'MiniMax 旗下视频生成模型，图生视频效果突出，运镜自然，支持高清视频输出。',
-        icon: '🎭',
-        iconBg: '#1a2e1a',
-        category: 'img-to-video',
-        tags: ['free', 'new'],
-        rating: 4.4,
-        reviews: '5.3k',
-        url: 'https://www.minimaxi.com/',
-        color: '#00d68f'
-    },
-    {
-        id: 9,
-        name: 'Stable Video Diffusion',
-        desc: 'Stability AI 开源模型，图生视频免费可商用。适合技术用户自部署，社区活跃。',
-        icon: '🖼️',
-        iconBg: '#1a1a2e',
-        category: 'img-to-video',
-        tags: ['free', '开源'],
-        rating: 4.1,
-        reviews: '8.9k',
-        url: 'https://stability.ai/stable-video',
-        color: '#45aaf2'
-    },
+    // ======================== ✍️ AI写作 ========================
+    writing: [
+        {
+            id: 'w1', name: 'ChatGPT',
+            desc: 'OpenAI 旗舰产品，地表最强AI写作助手。支持长文写作、创意文案、论文润色、多语言翻译，GPT-4o 模型写作质量无可匹敌。',
+            icon: '🤖', iconBg: '#1a2e1a',
+            category: 'general', tags: ['free','paid','hot'],
+            rating: 4.9, reviews: '58.2k', url: 'https://chat.openai.com/', color: '#00d68f'
+        },
+        {
+            id: 'w2', name: 'Claude',
+            desc: 'Anthropic 出品，长文写作王者。支持20万字超长上下文，适合论文写作、报告撰写、小说创作，逻辑严谨风格自然。',
+            icon: '🟣', iconBg: '#2e1a2e',
+            category: 'general', tags: ['free','paid','hot'],
+            rating: 4.8, reviews: '32.1k', url: 'https://claude.ai/', color: '#a29bfe'
+        },
+        {
+            id: 'w3', name: 'DeepSeek',
+            desc: '国产最强AI写作模型，免费且支持超长上下文。中文写作理解力极佳，支持联网搜索，论文润色、公文写作首选。',
+            icon: '🔍', iconBg: '#1a1a3e',
+            category: 'general', tags: ['free','hot','中文'],
+            rating: 4.7, reviews: '18.5k', url: 'https://chat.deepseek.com/', color: '#6c5ce7'
+        },
+        {
+            id: 'w4', name: '文心一言',
+            desc: '百度出品，深度整合百度搜索生态。中文语境理解最强，适合SEO写作、营销文案、百度系内容创作。',
+            icon: '🎯', iconBg: '#1a2e2e',
+            category: 'general', tags: ['free','中文'],
+            rating: 4.3, reviews: '25.6k', url: 'https://yiyan.baidu.com/', color: '#00b5b5'
+        },
+        {
+            id: 'w5', name: '通义千问',
+            desc: '阿里巴巴出品，免费且功能全面。支持长文写作、PPT大纲生成、文案创作，阿里生态深度整合。',
+            icon: '🌐', iconBg: '#1a1a2e',
+            category: 'general', tags: ['free','中文'],
+            rating: 4.4, reviews: '14.2k', url: 'https://tongyi.aliyun.com/', color: '#45aaf2'
+        },
+        {
+            id: 'w6', name: 'Kimi',
+            desc: '月之暗面出品，超长上下文处理能力突出（20万字）。适合阅读分析、论文综述、长文档总结写作。',
+            icon: '📖', iconBg: '#2e2e1a',
+            category: 'general', tags: ['free','new','中文'],
+            rating: 4.5, reviews: '9.8k', url: 'https://kimi.moonshot.cn/', color: '#ffa940'
+        },
+        {
+            id: 'w7', name: 'Notion AI',
+            desc: '笔记界的AI写作助手，在Notion内直接生成、改写、总结。适合博主、产品经理、团队协作写作。',
+            icon: '📝', iconBg: '#1a1a1a',
+            category: 'productivity', tags: ['paid'],
+            rating: 4.5, reviews: '12.3k', url: 'https://www.notion.so/product/ai', color: '#8888a0'
+        },
+        {
+            id: 'w8', name: 'Jasper AI',
+            desc: '专业营销文案写作工具，专为SEO文章、广告文案、社交媒体内容设计。模板丰富，适合商业写作。',
+            icon: '✍️', iconBg: '#2e1a1a',
+            category: 'marketing', tags: ['paid'],
+            rating: 4.3, reviews: '8.9k', url: 'https://www.jasper.ai/', color: '#ff6b6b'
+        },
+        {
+            id: 'w9', name: 'Copy.ai',
+            desc: 'AI营销文案生成器，一键生成广告文案、邮件营销、社交媒体帖子。支持多语言，适合电商运营。',
+            icon: '📢', iconBg: '#1a2e2e',
+            category: 'marketing', tags: ['free','paid'],
+            rating: 4.2, reviews: '6.5k', url: 'https://www.copy.ai/', color: '#00b5b5'
+        },
+        {
+            id: 'w10', name: 'Grammarly',
+            desc: 'AI英文写作助手，实时语法纠错、风格优化、语气调整。英文写作者必备，支持浏览器插件全平台覆盖。',
+            icon: '✅', iconBg: '#1a2e1a',
+            category: 'productivity', tags: ['free','paid'],
+            rating: 4.6, reviews: '45.7k', url: 'https://www.grammarly.com/', color: '#00d68f'
+        },
+        {
+            id: 'w11', name: '秘塔写作猫',
+            desc: '国产AI写作助手，专注于中文内容创作。支持文章续写、改写润色、标题生成，适合公众号、知乎内容创作。',
+            icon: '🐱', iconBg: '#2e1a2e',
+            category: 'productivity', tags: ['free','中文'],
+            rating: 4.1, reviews: '4.8k', url: 'https://xiezuocat.com/', color: '#a29bfe'
+        },
+        {
+            id: 'w12', name: 'Gamma',
+            desc: 'AI PPT/文档生成工具，输入主题一键生成精美演示文稿。适合职场汇报、商业计划书、教学课件。',
+            icon: '📊', iconBg: '#1a1a3e',
+            category: 'productivity', tags: ['free','paid','new'],
+            rating: 4.5, reviews: '7.2k', url: 'https://gamma.app/', color: '#6c5ce7'
+        }
+    ],
 
-    // ===== 视频编辑 =====
-    {
-        id: 10,
-        name: '剪映专业版',
-        desc: '字节出品，国内最强视频编辑软件，内置海量AI功能：智能抠像、AI调色、文本转语音、数字人播报。',
-        icon: '✂️',
-        iconBg: '#2e1a1a',
-        category: 'video-edit',
-        tags: ['free', 'hot', '中文'],
-        rating: 4.8,
-        reviews: '35.2k',
-        url: 'https://www.capcut.cn/',
-        color: '#ff6b6b'
-    },
-    {
-        id: 11,
-        name: 'CapCut (海外版剪映)',
-        desc: '剪映国际版，TikTok 官方推荐工具，AI自动剪辑、自动字幕、AI扩图等功能领先全球。',
-        icon: '🎪',
-        iconBg: '#1a1a2e',
-        category: 'video-edit',
-        tags: ['free', 'hot'],
-        rating: 4.7,
-        reviews: '42.1k',
-        url: 'https://www.capcut.com/',
-        color: '#ff6b6b'
-    },
-    {
-        id: 12,
-        name: 'Wondershare Filmora',
-        desc: '万兴科技出品，AI视频编辑工具代表。支持AI文案生成视频、AI智能抠像、AI语音克隆等。',
-        icon: '🎥',
-        iconBg: '#1a2e2e',
-        category: 'video-edit',
-        tags: ['paid', '中文'],
-        rating: 4.2,
-        reviews: '11.4k',
-        url: 'https://filmora.wondershare.com/',
-        color: '#00b5b5'
-    },
+    // ======================== 🎨 AI设计 ========================
+    design: [
+        {
+            id: 'd1', name: 'Midjourney',
+            desc: 'AI绘画之王，2026年已进化到V7版本。生成的图像质感、光影、构图无可匹敌，设计师和艺术家的首选工具。',
+            icon: '🎨', iconBg: '#1a1a1a',
+            category: 'gen', tags: ['paid','hot'],
+            rating: 4.9, reviews: '52.3k', url: 'https://www.midjourney.com/', color: '#8888a0'
+        },
+        {
+            id: 'd2', name: 'DALL·E 3',
+            desc: 'OpenAI 出品，与ChatGPT深度集成。文字理解能力最强，精准呈现复杂描述，支持图像编辑和风格调整。',
+            icon: '🖼️', iconBg: '#1a2e1a',
+            category: 'gen', tags: ['paid','hot'],
+            rating: 4.7, reviews: '38.6k', url: 'https://openai.com/dall-e-3', color: '#00d68f'
+        },
+        {
+            id: 'd3', name: 'Stable Diffusion 3',
+            desc: '开源AI绘画王者，免费可商用。社区生态最丰富，支持本地部署、LoRA训练、ControlNet精准控制。',
+            icon: '⚡', iconBg: '#1a1a2e',
+            category: 'gen', tags: ['free','开源','hot'],
+            rating: 4.6, reviews: '32.1k', url: 'https://stability.ai/', color: '#45aaf2'
+        },
+        {
+            id: 'd4', name: '通义万相',
+            desc: '阿里巴巴出品，免费AI绘画工具。支持文生图、图生图、风格迁移，中文理解优秀，适合国内用户。',
+            icon: '🌈', iconBg: '#2e2e1a',
+            category: 'gen', tags: ['free','中文'],
+            rating: 4.3, reviews: '10.5k', url: 'https://tongyi.aliyun.com/wanxiang/', color: '#ffa940'
+        },
+        {
+            id: 'd5', name: 'Canva AI',
+            desc: '全球最大在线设计平台，AI功能全面。AI生成设计、智能抠图、AI文案、一键生成PPT/海报/社交媒体图片。',
+            icon: '✏️', iconBg: '#1a2e2e',
+            category: 'design', tags: ['free','paid','hot'],
+            rating: 4.7, reviews: '48.9k', url: 'https://www.canva.com/', color: '#00b5b5'
+        },
+        {
+            id: 'd6', name: 'Figma AI',
+            desc: 'UI/UX设计师的AI助手，AI生成设计稿、智能布局、自动生成组件变体。2026年AI功能全面升级。',
+            icon: '🔷', iconBg: '#1a1a3e',
+            category: 'design', tags: ['free','paid','new'],
+            rating: 4.6, reviews: '22.4k', url: 'https://www.figma.com/', color: '#6c5ce7'
+        },
+        {
+            id: 'd7', name: 'Adobe Firefly',
+            desc: 'Adobe 官方AI工具，深度集成PS、AI、PR。商用安全，支持AI生图、AI填充、文字转矢量图。',
+            icon: '🔥', iconBg: '#2e1a1a',
+            category: 'gen', tags: ['paid','hot'],
+            rating: 4.5, reviews: '15.6k', url: 'https://www.adobe.com/products/firefly.html', color: '#ff6b6b'
+        },
+        {
+            id: 'd8', name: 'Leonardo AI',
+            desc: '游戏素材AI生成神器，擅长角色设计、场景概念、UI素材。每天免费150积分，社区海量模型。',
+            icon: '🎮', iconBg: '#1a2e1a',
+            category: 'gen', tags: ['free','paid'],
+            rating: 4.5, reviews: '11.2k', url: 'https://leonardo.ai/', color: '#00d68f'
+        },
+        {
+            id: 'd9', name: 'Ideogram',
+            desc: 'AI文字排版能力最强的绘画工具。生成包含精准文字的Logo、海报、社交媒体图片，设计师必备。',
+            icon: '🔤', iconBg: '#2e1a2e',
+            category: 'gen', tags: ['free','paid'],
+            rating: 4.4, reviews: '7.8k', url: 'https://ideogram.ai/', color: '#a29bfe'
+        },
+        {
+            id: 'd10', name: 'Remove.bg',
+            desc: 'AI智能抠图标杆，一键去除背景。支持人像、商品、宠物等精准抠图，API集成方便。',
+            icon: '✂️', iconBg: '#1a1a3e',
+            category: 'tool', tags: ['free','paid'],
+            rating: 4.6, reviews: '28.3k', url: 'https://www.remove.bg/', color: '#6c5ce7'
+        },
+        {
+            id: 'd11', name: 'Clipdrop',
+            desc: 'AI图像处理工具箱，一键去背景、AI重光、放大增强、文本转图片。由 Stability AI 出品。',
+            icon: '📦', iconBg: '#2e2e1a',
+            category: 'tool', tags: ['free','paid'],
+            rating: 4.2, reviews: '5.4k', url: 'https://clipdrop.co/', color: '#ffa940'
+        },
+        {
+            id: 'd12', name: 'V0 by Vercel',
+            desc: 'AI UI生成工具，输入文字描述即刻生成前端界面代码。适合产品经理、前端开发者快速原型设计。',
+            icon: '🧩', iconBg: '#1a1a1a',
+            category: 'design', tags: ['free','new'],
+            rating: 4.4, reviews: '6.1k', url: 'https://v0.dev/', color: '#8888a0'
+        }
+    ],
 
-    // ===== 数字人 =====
-    {
-        id: 13,
-        name: 'HeyGen',
-        desc: '数字人视频生成标杆，上传照片/视频即可生成逼真数字人播报，支持140+语言，适合短视频带货、企业宣传。',
-        icon: '👤',
-        iconBg: '#2e2e1a',
-        category: 'avatar',
-        tags: ['paid', 'hot'],
-        rating: 4.6,
-        reviews: '18.7k',
-        url: 'https://www.heygen.com/',
-        color: '#ffa940'
-    },
-    {
-        id: 14,
-        name: 'D-ID',
-        desc: 'AI数字人鼻祖，照片说话、数字人直播、AI化身客服。界面简洁，适合快速创建数字人视频。',
-        icon: '🎭',
-        iconBg: '#1a1a3e',
-        category: 'avatar',
-        tags: ['paid'],
-        rating: 4.3,
-        reviews: '8.2k',
-        url: 'https://www.d-id.com/',
-        color: '#6c5ce7'
-    },
-    {
-        id: 15,
-        name: '腾讯智影',
-        desc: '腾讯出品在线智能视频创作平台，数字人播报、AI配音、智能字幕。支持云端协作，国内用户友好。',
-        icon: '☁️',
-        iconBg: '#2e1a1a',
-        category: 'avatar',
-        tags: ['free', 'paid', '中文'],
-        rating: 4.4,
-        reviews: '6.5k',
-        url: 'https://zenvideo.qq.com/',
-        color: '#45aaf2'
-    },
+    // ======================== 💻 AI编程 ========================
+    coding: [
+        {
+            id: 'c1', name: 'Cursor',
+            desc: 'AI编程编辑器标杆，基于VS Code深度集成AI。Tab补全、Composer多文件编辑、Agent智能编码，开发者首选。',
+            icon: '🚀', iconBg: '#1a1a2e',
+            category: 'editor', tags: ['free','paid','hot'],
+            rating: 4.8, reviews: '35.6k', url: 'https://cursor.sh/', color: '#45aaf2'
+        },
+        {
+            id: 'c2', name: 'GitHub Copilot',
+            desc: '微软/GitHub出品，代码补全准确率最高，vs code/jetbrains全平台支持。2026年已进化到Auto-fix级别。',
+            icon: '🛡️', iconBg: '#1a2e1a',
+            category: 'editor', tags: ['paid','hot'],
+            rating: 4.7, reviews: '52.1k', url: 'https://github.com/features/copilot', color: '#00d68f'
+        },
+        {
+            id: 'c3', name: 'Claude Code',
+            desc: 'Anthropic 出品的 AI 编码Agent，终端内使用。擅长复杂重构、大型代码库理解、多文件修改，长上下文处理能力一流。',
+            icon: '🟣', iconBg: '#2e1a2e',
+            category: 'agent', tags: ['paid','new','hot'],
+            rating: 4.8, reviews: '18.2k', url: 'https://docs.anthropic.com/en/docs/claude-code', color: '#a29bfe'
+        },
+        {
+            id: 'c4', name: 'Windsurf',
+            desc: 'Codeium出品，AI原生IDE。Cascade流式编码、自动错误修复、上下文感知，免费版功能强大。',
+            icon: '🏄', iconBg: '#1a2e2e',
+            category: 'editor', tags: ['free','paid','hot'],
+            rating: 4.6, reviews: '12.4k', url: 'https://codeium.com/windsurf', color: '#00b5b5'
+        },
+        {
+            id: 'c5', name: '通义灵码',
+            desc: '阿里巴巴出品，国产AI编程助手。支持VS Code/JetBrains，中文理解最佳，代码补全和Bug检测出色。',
+            icon: '🧙', iconBg: '#2e2e1a',
+            category: 'editor', tags: ['free','中文'],
+            rating: 4.3, reviews: '8.7k', url: 'https://tongyi.aliyun.com/lingma/', color: '#ffa940'
+        },
+        {
+            id: 'c6', name: 'Amazon Q Developer',
+            desc: 'AWS出品，深度整合云开发。代码生成、安全扫描、AWS资源管理、代码审查一体化。',
+            icon: '☁️', iconBg: '#2e1a1a',
+            category: 'agent', tags: ['free','paid'],
+            rating: 4.2, reviews: '6.8k', url: 'https://aws.amazon.com/q/developer/', color: '#ff6b6b'
+        },
+        {
+            id: 'c7', name: 'v0 by Vercel',
+            desc: 'AI前端代码生成，文字描述→React/Next.js组件。前端开发者的快速原型神器，UI生成质量极高。',
+            icon: '🧩', iconBg: '#1a1a1a',
+            category: 'agent', tags: ['free','paid'],
+            rating: 4.5, reviews: '9.3k', url: 'https://v0.dev/', color: '#8888a0'
+        },
+        {
+            id: 'c8', name: 'Bolt.new',
+            desc: '浏览器内全栈AI编程，输入一句话生成完整应用。支持React/Vue/Node等，所见即所得。',
+            icon: '⚡', iconBg: '#1a1a3e',
+            category: 'agent', tags: ['free','paid','new'],
+            rating: 4.4, reviews: '5.6k', url: 'https://bolt.new/', color: '#6c5ce7'
+        },
+        {
+            id: 'c9', name: 'Replit AI',
+            desc: '在线IDE + AI编程，浏览器内完成开发、部署全流程。Agent模式自动规划任务、写代码、修Bug。',
+            icon: '🔄', iconBg: '#1a2e1a',
+            category: 'editor', tags: ['free','paid'],
+            rating: 4.3, reviews: '14.5k', url: 'https://replit.com/', color: '#00d68f'
+        },
+        {
+            id: 'c10', name: 'CodeGeeX',
+            desc: '智谱AI出品，国产开源AI编程助手。支持VS Code/JetBrains，代码翻译、注释生成、Bug修复，完全免费。',
+            icon: '🧬', iconBg: '#1a1a2e',
+            category: 'editor', tags: ['free','中文','开源'],
+            rating: 4.0, reviews: '4.2k', url: 'https://codegeex.cn/', color: '#45aaf2'
+        },
+        {
+            id: 'c11', name: 'Tabnine',
+            desc: '老牌AI代码补全工具，支持本地模型（数据安全）。支持所有主流IDE，个性化代码风格学习。',
+            icon: '🔮', iconBg: '#2e1a2e',
+            category: 'editor', tags: ['free','paid'],
+            rating: 4.1, reviews: '7.9k', url: 'https://www.tabnine.com/', color: '#a29bfe'
+        },
+        {
+            id: 'c12', name: 'SuperMaven',
+            desc: 'AI代码补全新秀，响应速度最快（<200ms）。免费版无限量使用，上下文窗口大，团队协作支持。',
+            icon: '⚡', iconBg: '#2e2e1a',
+            category: 'editor', tags: ['free','new'],
+            rating: 4.3, reviews: '3.4k', url: 'https://supermaven.com/', color: '#ffa940'
+        }
+    ]
+};
 
-    // ===== 动画生成 =====
-    {
-        id: 16,
-        name: 'Viggle AI',
-        desc: '3D角色动画生成神器，让图片角色跟着动作跳舞。2026年火爆全网的 AI 跳舞视频都出自这里。',
-        icon: '💃',
-        iconBg: '#2e1a2e',
-        category: 'animation',
-        tags: ['free', 'hot'],
-        rating: 4.5,
-        reviews: '7.8k',
-        url: 'https://www.viggle.ai/',
-        color: '#a29bfe'
-    },
-    {
-        id: 17,
-        name: 'Animate Diff',
-        desc: '开源 AI 动画生成工具，基于 Stable Diffusion，支持文生动画、视频风格迁移。适合技术创作者。',
-        icon: '🔄',
-        iconBg: '#1a1a2e',
-        category: 'animation',
-        tags: ['free', '开源'],
-        rating: 4.0,
-        reviews: '4.1k',
-        url: 'https://animatediff.github.io/',
-        color: '#45aaf2'
-    },
-    {
-        id: 18,
-        name: 'Moonvalley',
-        desc: '极简AI动画生成器，一句话生成梦幻动画短片。好莱坞风格镜头语言，电影感十足。',
-        icon: '🌙',
-        iconBg: '#1a2e2e',
-        category: 'animation',
-        tags: ['paid', 'new'],
-        rating: 4.2,
-        reviews: '3.6k',
-        url: 'https://moonvalley.ai/',
-        color: '#00b5b5'
-    },
-    {
-        id: 19,
-        name: 'Pixverse',
-        desc: '免费的 AI 视频/动画生成平台，社区活跃，每天送免费积分，支持文生视频和图生视频。',
-        icon: '🎨',
-        iconBg: '#2e2e1a',
-        category: 'animation',
-        tags: ['free', 'new'],
-        rating: 4.1,
-        reviews: '5.2k',
-        url: 'https://pixverse.ai/',
-        color: '#ffa940'
-    }
-];
-
-// ========== RENDER ==========
+// ========== STATE ==========
+let currentTab = 'video';
 let currentCategory = 'all';
 let currentSearch = '';
 
+// Category filter config per tab
+const tabFilters = {
+    video: {
+        all: '全部', gen: '文生视频', img2vid: '图生视频', edit: '视频编辑', avatar: '数字人', anim: '动画生成'
+    },
+    writing: {
+        all: '全部', general: '通用写作', marketing: '营销文案', productivity: '效率工具'
+    },
+    design: {
+        all: '全部', gen: 'AI绘画', design: '设计工具', tool: '实用工具'
+    },
+    coding: {
+        all: '全部', editor: '编码助手', agent: '编程Agent'
+    }
+};
+
+function getTools() { return toolsDB[currentTab] || []; }
+
+function renderFilters() {
+    const filterMap = tabFilters[currentTab];
+    const container = document.getElementById('filterButtons');
+    container.innerHTML = Object.entries(filterMap).map(([key, label]) => 
+        `<button data-cat="${key}" class="${key === currentCategory ? 'active' : ''}" onclick="filterByCategory('${key}')">${label}</button>`
+    ).join('');
+}
+
 function renderTools() {
     const grid = document.getElementById('toolGrid');
+    const tools = getTools();
     const filtered = tools.filter(t => {
-        const matchCat = currentCategory === 'all' || t.category === currentCategory || currentCategory === 'free' && t.tags.includes('free');
-        const matchSearch = !currentSearch || 
-            t.name.toLowerCase().includes(currentSearch) || 
-            t.desc.toLowerCase().includes(currentSearch) ||
-            t.tags.some(tag => tag.toLowerCase().includes(currentSearch));
+        const matchCat = currentCategory === 'all' || t.category === currentCategory;
+        const search = currentSearch.toLowerCase();
+        const matchSearch = !search || 
+            t.name.toLowerCase().includes(search) || 
+            t.desc.toLowerCase().includes(search) ||
+            t.tags.some(tag => tag.toLowerCase().includes(search));
         return matchCat && matchSearch;
     });
 
@@ -798,9 +999,25 @@ function renderTools() {
     `).join('');
 }
 
+function switchTab(tab) {
+    currentTab = tab;
+    currentCategory = 'all';
+    currentSearch = '';
+    document.getElementById('searchInput').value = '';
+    
+    document.querySelectorAll('.tab-btn').forEach(b => 
+        b.classList.toggle('active', b.dataset.tab === tab)
+    );
+    
+    renderFilters();
+    renderTools();
+}
+
 function filterByCategory(cat) {
     currentCategory = cat;
-    document.querySelectorAll('.filters button').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+    document.querySelectorAll('.filters button').forEach(b => 
+        b.classList.toggle('active', b.dataset.cat === cat)
+    );
     renderTools();
 }
 
@@ -809,6 +1026,8 @@ function filterTools() {
     renderTools();
 }
 
+// Init
+renderFilters();
 renderTools();
 </script>
 </body>
