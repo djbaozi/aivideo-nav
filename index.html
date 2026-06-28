@@ -520,6 +520,7 @@ var _hmt = _hmt || [];
     <button class="tab-btn" data-tab="writing" onclick="switchTab('writing')"><span class="tab-icon">✍️</span>AI写作<span class="tab-count" id="count-writing">12</span></button>
     <button class="tab-btn" data-tab="design" onclick="switchTab('design')"><span class="tab-icon">🎨</span>AI设计<span class="tab-count" id="count-design">12</span></button>
     <button class="tab-btn" data-tab="coding" onclick="switchTab('coding')"><span class="tab-icon">💻</span>AI编程<span class="tab-count" id="count-coding">12</span></button>
+    <button class="tab-btn" data-tab="network" onclick="switchTab('network')"><span class="tab-icon">🎯</span>网络工具<span class="tab-count" id="count-network">1</span></button>
 </div>
 
 <div class="container">
@@ -1000,6 +1001,15 @@ const toolsDB = {
             category: 'editor', tags: ['free','new'],
             rating: 4.3, reviews: '3.4k', url: 'https://supermaven.com/', color: '#ffa940'
         }
+    ],
+    network: [
+        {
+            id: 'n1', name: '白月光BGP',
+            desc: '企业级BGP多线接入，香港/东京/新加坡/硅谷POP节点。¥66/季起，5台设备，70+国家节点，支持流媒体解锁。',
+            icon: '🌙', iconBg: '#1a0a2e',
+            category: 'proxy', tags: ['推荐','BGP','高速'],
+            rating: 4.8, reviews: '2.3k', url: 'https://www.sibker.com/register?invite_code=6i6d1do0', color: '#6c5ce7'
+        }
     ]
 };
 
@@ -1024,6 +1034,11 @@ const tabThemes = {
         from: '#0a0a1a', to: '#0a1a2e',
         accent: '#45aaf2', glow: 'rgba(69,170,242,0.12)',
         desc: '💻 Cursor · Copilot · Claude Code · Windsurf · v0'
+    },
+    network: {
+        from: '#0a0a1a', to: '#1a0a3e',
+        accent: '#a29bfe', glow: 'rgba(162,155,254,0.12)',
+        desc: '🌙 白月光BGP · ¥66/季 · 稳定高速翻墙'
     }
 };
 
@@ -1045,6 +1060,9 @@ const tabFilters = {
     },
     coding: {
         all: '全部', editor: '编码助手', agent: '编程Agent'
+    },
+    network: {
+        all: '全部', proxy: '网络工具'
     }
 };
 
