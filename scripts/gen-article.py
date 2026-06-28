@@ -269,9 +269,19 @@ def render_article_html(title: str, body_html: str, topic: dict) -> str:
 var _hmt = _hmt || [];
 (function() {{
   var hm = document.createElement("script");
+  var s = document.getElementsByTagName("script")[0];
   hm.src = "https://hm.baidu.com/hm.js?afa31074dc7bf6a42b58395e437f7fe6";
-  var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
+}})();
+</script>
+<meta name="baidu-site-verification" content="codeva-afa31074dc7bf6a42b58395e437f7fe6" />
+<!-- 百度安全验证白名单 -->
+<script>
+(function(){{
+  var bp = document.createElement("script");
+  bp.src = "https://zz.bdstatic.com/linksubmit/push.js";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
 }})();
 </script>
 <title>{title} | AI工具导航</title>
