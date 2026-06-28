@@ -325,7 +325,7 @@ def make_slug(title: str, prefix: str) -> str:
 
 
 def update_index_html(title: str, desc: str, slug: str, badge: str, category_tag: str):
-    """更新index.html：新文章卡片插到blog-grid最前面"""
+    """更新index.html：新文章卡片插到blog-grid中data-sticky卡片之后（保持置顶卡在最前面）"""
     index_path = SITE_DIR / "index.html"
     html = index_path.read_text(encoding="utf-8")
     today = date.today().strftime("%Y-%m-%d")
@@ -341,20 +341,23 @@ def update_index_html(title: str, desc: str, slug: str, badge: str, category_tag
             </div>
         </a>"""
 
-    # 在第一个 blog-card 之前插入
-    old = '<div class="blog-grid">\n'
-    idx = html.find(old)
-    if idx == -1:
-        print("ERROR: Cannot find blog-grid in index.html")
-        sys.exit(1)
+    # 在第一个 data-sticky 的卡片后面插入（如果有），否则插到 blog-grid 开头
+    sticky_close = 'data-sticky="true">'
+    sticky_idx = html.find(sticky_close)
+    if sticky_idx != -1:
+        # 找到 sticky 卡片结束位置（</a> 之后）
+        close_a = html.find("</a>", sticky_idx)
+        insert_pos = close_a + len("</a>") + 1  # +1 for newline
+    else:
+        # 没有 sticky，插到 blog-grid 开头
+        old = '<div class="blog-grid">\n'
+        idx = html.find(old)
+        if idx == -1:
+            print("ERROR: Cannot find blog-grid in index.html")
+            sys.exit(1)
+        insert_pos = idx + len(old)
 
-    insert_pos = idx + len(old)
     updated = html[:insert_pos] + new_card + "\n" + html[insert_pos:]
-
-    # 把之前的"new"标记去掉（除刚加的第一个外，其余new改回普通）
-    # 简单做：替换第一个出现的new（已加的）后面的一律去掉badge里的new标记
-    # 更好的做法：保留原有new样式
-
     index_path.write_text(updated, encoding="utf-8")
     print(f"✅ 已更新 index.html，添加卡片：{title}")
 
