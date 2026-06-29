@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="从零到上手，AI绘画提示词进阶：从入门到高手完整操作指南，手把手教你从入门到高手。新手也能快速掌握。">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  var s = document.getElementsByTagName("script")[0];
+  hm.src = "https://hm.baidu.com/hm.js?afa31074dc7bf6a42b58395e437f7fe6";
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta name="baidu-site-verification" content="codeva-afa31074dc7bf6a42b58395e437f7fe6" />
+<!-- 百度安全验证白名单 -->
+<script>
+(function(){
+  var bp = document.createElement("script");
+  bp.src = "https://zz.bdstatic.com/linksubmit/push.js";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<title>AI绘画提示词进阶：从入门到高手 | AI工具导航</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #f8f9fa; color: #333; line-height: 1.8; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 40px 50px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        h1 { font-size: 28px; text-align: center; margin-bottom: 10px; color: #1a1a2e; }
+        .meta { text-align: center; color: #888; font-size: 14px; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        h2 { font-size: 22px; margin: 40px 0 16px; padding-left: 14px; border-left: 4px solid #6c5ce7; color: #1a1a2e; }
+        h3 { font-size: 18px; margin: 24px 0 12px; color: #374151; }
+        p { margin-bottom: 16px; text-align: justify; }
+        .highlight { background: #f4f0ff; border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #e0d8ff; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #6c5ce7; color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid #eee; }
+        tr:hover td { background: #f8f6ff; }
+        ul, ol { margin: 0 0 16px 24px; }
+        li { margin-bottom: 8px; }
+        a { color: #6c5ce7; }
+        .cta { display: inline-block; background: linear-gradient(135deg,#6c5ce7,#a29bfe); color: #fff; padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; margin: 20px 0; }
+        .cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108,92,231,0.3); }
+        .back-link { display: block; text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #888; text-decoration: none; font-size: 14px; }
+        .back-link:hover { color: #6c5ce7; }
+        @media (max-width: 600px) { .container { padding: 20px; } h1 { font-size: 22px; } }
+        blockquote { border-left: 4px solid #ddd; margin: 16px 0; padding: 12px 20px; background: #f9f9fb; color: #666; }
+        code { background: #f0f0f5; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+        img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>AI绘画提示词进阶：从入门到高手</h1>
+<div class="meta">📅 2026-06-29 · 📖 AI教程</div>
+
+<p>还记得你第一次用AI绘画时，输入“一只猫”或者“美丽的风景”后，得到一堆四不像、抽象派“艺术品”的那种绝望感吗？我懂，真的懂。那时候我也觉得，AI绘画就是个噱头，根本画不出我想要的东西。</p>
+
+<p>但后来我发现，问题不在AI，而在我的“沟通方式”。AI是个急性子，它听不懂你的“差不多”，它只听懂“精确到像素”的描述。你给它的提示词（Prompt），就是你们的“暗号”。</p>
+
+<p>今天这篇文章，我想跟你聊聊，怎么从“一句话都说不清”的萌新，变成“一句话就能生成大片”的高手。这是我在无数次“翻车”后总结出来的血泪教训，希望能帮你少走弯路。</p>
+
+<h2>一、拆解“魔法咒语”：提示词的3个核心要素</h2>
+
+<p>很多人觉得提示词就是“写作文”，越长越好。其实不对。AI绘画的提示词更像是一道“指令”，它需要你明确告诉它：画什么、怎么画、什么风格。</p>
+
+<p>我习惯把提示词拆成三个部分：</p>
+
+<p><strong>1. 主体（Subject）：</strong>你要画的核心是什么？是人、动物、风景，还是科幻飞船？这部分要具体。比如“一只猫”不如“一只橘猫趴在窗台上晒太阳”。</p>
+
+<p><strong>2. 环境与氛围（Environment & Atmosphere）：</strong>背景在哪儿？光线怎么样？是白天还是黑夜？是晴天还是下雨？比如“阳光透过百叶窗照在木地板上，光影斑驳”。</p>
+
+<p><strong>3. 风格与媒介（Style & Medium）：</strong>你想要什么画风？是写实摄影、水彩画、赛博朋克，还是宫崎骏动画？这部分决定了画面的“质感”。比如“4k照片级”、“吉卜力风格”、“油画笔触”。</p>
+
+<p>举个例子，你直接写“一只猫在森林里”，AI可能会给你一个“长了猫头的树”这种抽象玩意儿。但如果你写成：<br>
+<code>一只橘猫蹲在长满青苔的石头上，背后是雾气缭绕的古老森林，阳光透过树叶洒下丁达尔效应，写实摄影风格，8k，柔和的色调。</code><br>
+结果就完全不一样了。</p>
+
+<div class="highlight">
+<p><b>💡 小贴士：</b>刚开始练习时，可以先用“主体+环境+风格”这个公式写提示词。写完后问自己：这个描述够不够具体？能不能让一个没见过这场景的人也脑补出画面？</p>
+</div>
+
+<h2>二、进阶技巧：用好“负向提示词”和“权重”</h2>
+
+<p>很多新手只写“要什么”，从来不写“不要什么”。结果AI经常给你“加戏”——画个人给你加六根手指，画个房子给你长出翅膀。这时候，<strong>负向提示词（Negative Prompt）</strong>就是你的“降魔杵”。</p>
+
+<p>我常用的负向提示词黑名单包括：<br>
+<code>多余的肢体，畸形的手指，丑陋的脸，模糊的，低质量，水印，文字，签名</code></p>
+
+<p>别小看这句话，它能帮你过滤掉80%的“废片”。</p>
+
+<p>另一个进阶技巧是<strong>权重控制</strong>。在中级工具（比如Midjourney、Stable Diffusion）里，你可以用括号或数字来强调某个词。比如：<br>
+<code>((一只生气的橘猫))，毛发炸起，瞳孔收缩</code><br>
+这样AI就会更执着地画出“愤怒”的情绪，而不是“慵懒”的橘猫。</p>
+
+<p>我试过最狠的一次，把“赛博朋克”的权重调到最高，结果画面直接变成了“城市夜景+霓虹灯+机械臂”的硬核科幻片，连主角都快认不出来了。权重就像音量旋钮，拧太大会失真，需要反复调试。</p>
+
+<h2>三、高手速成法：学会“抄”与“改”</h2>
+
+<p>别急着闭门造车。AI绘画圈子里，最有效率的学习方法就是“抄作业”——也就是<strong>学习别人的提示词</strong>。</p>
+
+<p>我在很多AI绘画社区（比如Civitai、Reddit的r/StableDiffusion）看到过大量高质量作品，它们都会附带完整的提示词。我一开始的做法是：</p>
+<ol>
+    <li>找到一张我喜欢的图，复制它的提示词。</li>
+    <li>直接生成，看看效果。</li>
+    <li>然后<strong>修改其中一个词</strong>，比如把“夜晚”改成“黄昏”，看看画面怎么变。</li>
+    <li>再改另一个词，比如把“写实”改成“水彩”，感受风格的变化。</li>
+</ol>
+
+<p>这就像学做菜，先照着菜谱来一遍，然后一点点调整调料比例。我靠这个方法，两周内就从“画啥啥不像”变成了“画啥啥像”。</p>
+
+<p>高手和普通人的区别在于：高手知道哪些词是“关键变量”，哪些是“背景板”。比如“光线”、“颜色”、“细节程度”往往是画龙点睛的部分，而“背景描述”则容易让AI跑偏。</p>
+
+<h2>总结</h2>
+
+<p>AI绘画本质上是一场“精准沟通”。你越了解AI的“语言习惯”，就越能画出心中所想。从“主体+环境+风格”的基础公式，到负向提示词的“除魔”，再到权重控制的“微调”，最后通过“抄改”快速进步——这条路我走过，真的有效。</p>
+
+<p>现在，我每天都会用AI画一些脑洞大开的画面，比如“戴着墨镜的熊猫在太空开火锅店”，AI基本能精准还原。那种成就感，比打游戏通关还爽。</p>
+
+<p>如果你也想试试这些技巧，或者想找更多好用的AI绘画工具，可以去我常逛的 <a href="https://djbaozi.ccwu.cc" style="color:#6c5ce7;text-decoration:none;">AI工具导航站</a> 看看，里面收录了200+款AI工具，从绘画到写作、视频、音频全都有，而且分类很清楚。每次我想换工具或者找灵感，都会去那里逛一圈，总能发现新大陆。</p>
+
+<p style="text-align:center;margin-top:40px;color:#888;">—— 
+    <a href="https://djbaozi.ccwu.cc" style="color:#6c5ce7;text-decoration:none;">AI工具导航站</a> · 
+    收录200+款AI工具，帮你找到最适合的
+</p>
+<a href="https://djbaozi.ccwu.cc/" class="back-link">← 返回 AI工具导航</a>
+</div>
+</body>
+</html>

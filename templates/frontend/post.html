@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} — djbaozi AI导航</title>
+    <meta name="description" content="{{ post.excerpt or 'AI工具教程和评测' }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="/"><span class="logo-icon">🧰</span> <span class="logo-text">AI工具导航</span></a>
+            </div>
+            <a href="/" class="back-link">← 回到首页</a>
+        </div>
+    </header>
+
+    <main>
+        <article class="post-detail">
+            <div class="container" style="max-width: 800px;">
+                <h1>{{ post.title }}</h1>
+                <div class="post-meta-bar">
+                    <span>📅 {{ post.created_at.strftime('%Y-%m-%d') if post.created_at else '' }}</span>
+                    <span>📊 {{ post.view_count }} 阅读</span>
+                </div>
+                <div class="post-content">
+                    {{ content_html|safe }}
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-copy">🧰 <a href="/">AI工具导航</a> — Made with ❤️ by djbaozi</p>
+        </div>
+    </footer>
+</body>
+</html>

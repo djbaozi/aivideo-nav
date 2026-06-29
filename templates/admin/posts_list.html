@@ -1,0 +1,69 @@
+{% extends "admin/base.html" %}
+{% block title %}文章管理{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0"><i class="bi bi-file-text"></i> 文章管理</h4>
+    <a href="{{ url_for('admin_posts_add') }}" class="btn btn-primary" style="background: linear-gradient(135deg, #8B5CF6, #06B6D4); border: none;">
+        <i class="bi bi-plus-lg"></i> 写文章
+    </a>
+</div>
+<div class="card" style="background: #13131E; border: 1px solid rgba(139,92,246,0.12);">
+    <div class="card-body p-0">
+        <table class="table table-dark table-hover mb-0" style="background: transparent;">
+            <thead>
+                <tr>
+                    <th>标题</th>
+                    <th>Slug</th>
+                    <th>状态</th>
+                    <th>阅读</th>
+                    <th>创建时间</th>
+                    <th style="width: 120px;">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts.items %}
+                <tr>
+                    <td><strong>{{ post.title }}</strong></td>
+                    <td><small class="text-muted">{{ post.slug }}</small></td>
+                    <td>
+                        {% if post.status == 'published' %}
+                        <span class="badge bg-success">已发布</span>
+                        {% else %}
+                        <span class="badge bg-warning">草稿</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ post.view_count }}</td>
+                    <td><small class="text-muted">{{ post.created_at.strftime('%Y-%m-%d %H:%M') if post.created_at else '-' }}</small></td>
+                    <td>
+                        <a href="{{ url_for('admin_posts_edit', id=post.id) }}" class="btn btn-sm btn-outline-info"><i class="bi bi-pencil"></i></a>
+                        <a href="{{ url_for('admin_posts_delete', id=post.id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('确定删除？')"><i class="bi bi-trash"></i></a>
+                        {% if post.status == 'published' %}
+                        <a href="{{ url_for('view_post', slug=post.slug) }}" target="_blank" class="btn btn-sm btn-outline-secondary"><i class="bi bi-eye"></i></a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted py-4">暂无文章</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="p-3 d-flex justify-content-center">
+            <nav>
+                <ul class="pagination pagination-sm mb-0">
+                    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+                    {% if page_num %}
+                    <li class="page-item {% if page_num == posts.page %}active{% endif %}">
+                        <a class="page-link" href="{{ url_for('admin_posts_list', page=page_num) }}">{{ page_num }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+{% endblock %}

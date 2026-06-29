@@ -1,0 +1,55 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ '编辑工具' if tool else '添加工具' }}{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0"><i class="bi bi-{{ 'pencil' if tool else 'plus-lg' }}"></i> {{ '编辑工具' if tool else '添加工具' }}</h4>
+    <a href="{{ url_for('admin_tools_list') }}" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> 返回列表</a>
+</div>
+<div class="card" style="background: #13131E; border: 1px solid rgba(139,92,246,0.12);">
+    <div class="card-body">
+        <form method="post">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">工具名称 *</label>
+                    <input type="text" name="name" class="form-control" required value="{{ tool.name if tool else '' }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">图标</label>
+                    <input type="text" name="icon" class="form-control" value="{{ tool.icon if tool else '🔧' }}" placeholder="🔧">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">排序权重</label>
+                    <input type="number" name="sort_order" class="form-control" value="{{ tool.sort_order if tool else '0' }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">分类</label>
+                    <select name="category" class="form-select">
+                        <option value="🎬AI视频" {% if tool and tool.category == '🎬AI视频' %}selected{% endif %}>🎬 AI视频</option>
+                        <option value="✍️AI写作" {% if tool and tool.category == '✍️AI写作' %}selected{% endif %}>✍️ AI写作</option>
+                        <option value="🎨AI设计" {% if tool and tool.category == '🎨AI设计' %}selected{% endif %}>🎨 AI设计</option>
+                        <option value="💻AI编程" {% if tool and tool.category == '💻AI编程' %}selected{% endif %}>💻 AI编程</option>
+                        <option value="🎯网络工具" {% if tool and tool.category == '🎯网络工具' %}selected{% endif %}>🎯 网络工具</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">工具链接 *</label>
+                    <input type="url" name="url" class="form-control" required value="{{ tool.url if tool else '' }}" placeholder="https://">
+                </div>
+                <div class="col-12">
+                    <label class="form-label">描述</label>
+                    <textarea name="description" class="form-control" rows="3" placeholder="简短描述工具功能...">{{ tool.description if tool else '' }}</textarea>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">标签（逗号分隔）</label>
+                    <input type="text" name="tags" class="form-control" value="{{ tool.tags if tool else '' }}" placeholder="AI视频, 文生视频">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" style="background: linear-gradient(135deg, #8B5CF6, #06B6D4); border: none;">
+                        <i class="bi bi-check-lg"></i> {{ '保存修改' if tool else '添加工具' }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ '编辑文章' if post else '写文章' }}{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0"><i class="bi bi-{{ 'pencil' if post else 'plus-lg' }}"></i> {{ '编辑文章' if post else '写文章' }}</h4>
+    <a href="{{ url_for('admin_posts_list') }}" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> 返回</a>
+</div>
+<div class="card" style="background: #13131E; border: 1px solid rgba(139,92,246,0.12);">
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">文章标题 *</label>
+                <input type="text" name="title" class="form-control" required value="{{ post.title if post else '' }}">
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Slug（URL别名，留空自动生成）</label>
+                    <input type="text" name="slug" class="form-control" value="{{ post.slug if post else '' }}" placeholder="my-article-slug">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">状态</label>
+                    <select name="status" class="form-select">
+                        <option value="draft" {% if post and post.status == 'draft' %}selected{% endif %}>草稿</option>
+                        <option value="published" {% if post and post.status == 'published' %}selected{% endif %}>发布</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">封面图URL</label>
+                    <input type="url" name="cover" class="form-control" value="{{ post.cover if post else '' }}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">摘要</label>
+                <textarea name="excerpt" class="form-control" rows="2" placeholder="文章摘要，留空自动截取前200字符">{{ post.excerpt if post else '' }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">内容（Markdown）</label>
+                <textarea name="content" class="form-control" rows="20" placeholder="支持 Markdown 格式">{{ post.content if post else '' }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background: linear-gradient(135deg, #8B5CF6, #06B6D4); border: none;">
+                <i class="bi bi-check-lg"></i> {{ '保存修改' if post else '发布文章' }}
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

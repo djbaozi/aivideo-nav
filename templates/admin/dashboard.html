@@ -1,0 +1,83 @@
+{% extends "admin/base.html" %}
+{% block title %}仪表盘{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0"><i class="bi bi-speedometer2"></i> 仪表盘</h4>
+</div>
+<div class="row g-3">
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(139,92,246,0.15); color: #8B5CF6;">
+                <i class="bi bi-tools"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-count">{{ tool_count }}</span>
+                <span class="stat-label">工具总数</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(6,182,212,0.15); color: #06B6D4;">
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-count">{{ active_tools }}</span>
+                <span class="stat-label">已上线</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(245,158,11,0.15); color: #F59E0B;">
+                <i class="bi bi-file-text"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-count">{{ post_count }}</span>
+                <span class="stat-label">文章数</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(16,185,129,0.15); color: #10B981;">
+                <i class="bi bi-people"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-count">1</span>
+                <span class="stat-label">管理员</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card" style="background: #13131E; border: 1px solid rgba(139,92,246,0.12);">
+            <div class="card-body">
+                <h5 class="card-title" style="color: #F1F1F6;">快速操作</h5>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="{{ url_for('admin_tools_add') }}" class="btn btn-primary" style="background: linear-gradient(135deg, #8B5CF6, #06B6D4); border: none;">
+                        <i class="bi bi-plus-lg"></i> 添加工具
+                    </a>
+                    <a href="{{ url_for('admin_posts_add') }}" class="btn btn-outline-info">
+                        <i class="bi bi-plus-lg"></i> 写文章
+                    </a>
+                    <a href="{{ url_for('admin_tools_list') }}" class="btn btn-outline-secondary">
+                        <i class="bi bi-list"></i> 管理工具
+                    </a>
+                    <a href="{{ url_for('index') }}" target="_blank" class="btn btn-outline-success">
+                        <i class="bi bi-eye"></i> 查看前台
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.stat-card { background: #13131E; border: 1px solid rgba(139,92,246,0.12); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 16px; }
+.stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.stat-info { display: flex; flex-direction: column; }
+.stat-count { font-size: 28px; font-weight: 700; color: #F1F1F6; line-height: 1.2; }
+.stat-label { font-size: 13px; color: #8A8A9E; }
+</style>
+{% endblock %}
